@@ -5,25 +5,28 @@
 # COSC 1010
 #
 # Use comments liberally throughout the program. 
+
 def main():
     try:
-        numbersFile = open("number.txt", "r")
-        total = 0
-        numbersOfLines = 0
-        line = numbersFile.readline()
-        while line != "":
-         numberOfLines += 1
-         total += int(line)
-         line = numbersFile.readline()
-    
-        average = total / numberOfLines
-    except IOError as error:
-        print( "An IOError has occured")
+        with open("number.txt", "r") as numbersFile:
+            total = 0
+            numbersOfLines = 0 
+            for line in numbersFile:
+                try:
+                    number = int(line.strip())
+                    total += number
+                    numbersOfLines += 1
+                except ValueError:
+                    print(f"Skipping invalid line: {line.strip()}")
+            if numbersOfLines == 0:
+                raise ValueError("The file is empty or contrains no valid numbers.")
+            average = total / numbersOfLines
+    except IOError:
+        print("An IOError has occurred.")
     except ValueError as error:
-        print( "A ValueError occured" )
+        print(f"A ValueError aoccurred: {error}")
     else:
-         print("The average is")
-    finally: 
+        print(f"The average is {average}")
+    finally:
         print("End of program")
-
 main()
