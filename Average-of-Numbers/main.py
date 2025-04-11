@@ -6,14 +6,22 @@
 #
 
 def main():
-    numbersFile = open ("numbers.txt", "r")
-
-    total = 0 
-    numbersOfLines = 0
-    line = numbersFile.readline()
-
-    average = total / numbersOfLines
-
-    print("The average is", average)
-
+    try:
+        with open("numbers.txt", "r") as numbersFile:
+            total = 0
+            numberOfLines = 0
+            for line in numbersFile:
+                try:
+                    number = float(line.strip())
+                    total += number
+                    numberOfLines += 1
+                except ValueError:
+                    print(f"Invalid number in file: {line.strip()}")
+            if numberOfLines > 0:
+                average = total / numberOfLines
+                print("The average is", average)
+            else:
+                print("No valid numbers to calculate an average.")
+    except FileNotFoundError:
+        print("Error: The file 'numbers.txt' was not found.")
 main()
