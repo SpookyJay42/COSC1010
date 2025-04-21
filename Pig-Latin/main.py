@@ -4,4 +4,10 @@
 # Pig Latin Programming Project
 # COSC 1010
 #
-# Use comments liberally throughout the program. 
+# 
+def piglatin():
+    words = input("Input sentence: ").split()
+    for word in words:
+        print(word[1:] + word[0] + "ay", end=' ')
+
+piglatin()
