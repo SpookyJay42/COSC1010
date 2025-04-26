@@ -5,10 +5,10 @@
 # COSC 1010
 #
 
-# Define a set containing all vowels 
+# Define a set containing all vowels. 
 vowels = set("aeiouAEIOU")
 
-# Function to count the number of vowels in a given string
+# Function to count the number of vowels in a given string.
 def count_vowels(input_string):
     vowel_count = 0  
     for char in input_string:  
@@ -16,7 +16,7 @@ def count_vowels(input_string):
             vowel_count += 1  
     return vowel_count   
 
-# Function to count the number of consonants in a given string
+# Function to count the number of consonants in a given string.
 def count_consonants(input_string):
     consonant_count = 0  
     for char in input_string:  
@@ -24,7 +24,7 @@ def count_consonants(input_string):
             consonant_count += 1  
     return consonant_count  
 
-# Prompt the user to enter a string
+# Prompt the user to enter a string.
 user_input = input("Enter a string to count vowels and consonants: ")
 vowel_count = count_vowels(user_input)
 consonant_count = count_consonants(user_input)
