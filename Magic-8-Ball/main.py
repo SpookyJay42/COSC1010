@@ -1,6 +1,6 @@
 #
-# Name
-# Date
+# Jay
+# 4/26/2025
 # Magic 8 Ball Programming Project
 # COSC 1010
 #
