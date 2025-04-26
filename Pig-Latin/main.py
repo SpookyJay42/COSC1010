@@ -1,6 +1,6 @@
 #
-# Name
-# Date
+# Jay
+# 4/19/2025
 # Pig Latin Programming Project
 # COSC 1010
 #
