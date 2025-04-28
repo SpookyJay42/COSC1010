@@ -1,6 +1,6 @@
 #
-# Name
-# Date
+# Jay
+# 4/26/2025
 # Capital Quiz Programming Project
 # COSC 1010
 #
@@ -36,9 +36,24 @@ def main():
                 'Washington':'Olympia', 'West Virginia':'Charleston',
                 'Wisconsin':'Madison', 'Wyoming':'Cheyenne'}
 
-    # Local variables
+    print("Welcome to the State Capitals Quiz!")
+    print("Type 'quit' to exit the game at any time.\n")
 
     # Continue until user quits the game.
+    while True:
+        state = random.choice(list(capitals.keys()))
+        capital = capitals[state]  # Corrected variable usage
+        
+        user_answer = input(f"What is the capital of {state}? ").strip()
+
+        if user_answer.lower() == 'quit':
+            print("Thanks for playing! Bye Bye!!")
+            break
+        if user_answer == capital:
+            print("Correct!\n")
+        else:
+            print(f"Incorrect. The capital of {state} is {capital}.\n")
 
 # Call the main function.
-main()
+if __name__ == "__main__":
+    main()
