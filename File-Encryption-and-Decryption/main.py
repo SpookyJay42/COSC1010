@@ -6,35 +6,30 @@
 #
 # Use comments liberally throughout the program. 
 
-def process_file(input_file, output_file, key, mode):
-    try:
-        with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
-            for line in infile:
-                processed_line = ''.join(
-                    chr((ord(char) + key) % 256) if mode == 'encrypt' else chr((ord(char) - key) % 256)
-                    for char in line
-                )
-                outfile.write(processed_line)
-        print(f"File '{input_file}' has been {mode}ed and saved as '{output_file}'.")
-    except FileNotFoundError:
-        print(f"Error: The file '{input_file}' does not exist.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-def main():
-    print("File Encryption and Decryption Program")
-    while True:
-        choice = input("1. Encrypt a file\n2. Decrypt a file\n3. Exit\nEnter your choice: ").strip()
-        if choice in ['1', '2']:
-            input_file = input("Enter the input file name: ").strip()
-            output_file = input("Enter the output file name: ").strip()
-            key = int(input("Enter the key (integer): ").strip())
-            mode = 'encrypt' if choice == '1' else 'decrypt'
-            process_file(input_file, output_file, key, mode)
-        elif choice == '3':
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice. Try again.")
-# Call the main function.
-if __name__ == "__main__":
-    main()
+#The Encryption Library
+encryption_library = {'A':'!','B':'@','C':'#','D':'$','E':'%','F':'^','G':'&','H':'*','I':'(',
+                      'J':')','K':'-','L':'_','M':'+','N':'=','O':'`','P':'~','Q':'{','R':'[',
+                      'S':'}','T':']','U':':','V':';','W':'"','X':'<','Y':'>','Z':'0','a':'1',
+                      'b':'2','c':'3','d':'4','e':'5','f':'6','g':'7','h':'8','i':'9','j':'a',
+                      'k':'b','l':'c','m':'d','n':'e','o':'f','p':'g','q':'h','r':'i','s':'j',
+                      't':'k','u':'l','v':'m','w':'n','x':'o','y':'p','z':'q'}
+#Opening the Plain flie and Encryption
+with open("Plain_text_File.txt', 'r'") as orig_file:
+    file_read = orig_file.read()
+with open('Encrypted_Plain_Text_File.txt', 'w') as encrypt_file:
+    for ch in file_read: #Loop
+        encrypt_file.write(encryption_library.get(ch, ch))
+#Decryptioning 
+with open('Encrypted_Plain_Text_File.txt', 'r') as encrypt_file:
+    file_read = encrypt_file.read()
+
+decryption_libary = {v: k for k, v in encrypt_file.items()}
+for ch in file_read: #Loop
+    print(decryption_libary.get(ch, ch), end='')
+
+
+
+
+
+
+   
