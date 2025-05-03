@@ -27,6 +27,35 @@ decryption_libary = {v: k for k, v in encrypt_file.items()}
 for ch in file_read: #Loop
     print(decryption_libary.get(ch, ch), end='')
 
+    #The Decryption Library
+decryption_library = {v: k for k, v in encryption_library.items()}
+
+orig_file = open('ENCRYPTED_Plain_Text_File.txt','r')
+file_read = orig_file.read()
+orig_file.close()
+encrypt_file = open('DECRYPTED_Plain_Text_File.txt','w')
+
+for ch in file_read: #Loop
+    if ch in decryption_library:
+        encrypt_file.write(decryption_library[ch])
+    else:
+        encrypt_file.write(ch)
+
+encrypt_file.close()
+encrypt_file = open('ENCRYPTED_Plain_Text_File.txt','r')
+file_read = encrypt_file.read()
+encrypt_file.close()    
+codes_items = decryption_library.items()
+
+for ch in file_read:
+    if not ch in decryption_library.values() or ch == '.' or ch == ',' or ch == '!':
+        print(ch)
+    else:
+        for k,v in codes_items:
+            if ch == v and ch != '.':
+                print(k,end='')
+
+
 
 
 
