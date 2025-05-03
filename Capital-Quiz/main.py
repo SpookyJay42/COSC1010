@@ -8,9 +8,9 @@
 
 import random
 
-def main():
+
     # Initialize dictionary
-    capitals = {'Alabama':'Montgomery', 'Alaska':'Juneau',
+capitals = {'Alabama':'Montgomery', 'Alaska':'Juneau',
                 'Arizona':'Phoenix', 'Arkansas':'Little Rock',
                 'California':'Sacramento', 'Colorado':'Denver',
                 'Connecticut':'Hartford', 'Delaware':'Dover',
@@ -34,8 +34,11 @@ def main():
                 'Texas':'Austin', 'Utah':'Salt Lake City',
                 'Vermont':'Montpelier', 'Virginia':'Richmond',
                 'Washington':'Olympia', 'West Virginia':'Charleston',
-                'Wisconsin':'Madison', 'Wyoming':'Cheyenne'}
-
+                'Wisconsin':'Madison', 'Wyoming':'Cheyenne'
+}
+def main():
+    score = 0
+    question_count = 15
     print("Welcome to the State Capitals Quiz!")
     print("Type 'quit' to exit the game at any time.\n")
 
@@ -48,9 +51,11 @@ def main():
 
         if user_answer.lower() == 'quit':
             print("Thanks for playing! Bye Bye!!")
+            print(f"You scored {score} out of 10.")
             break
         if user_answer == capital:
             print("Correct!\n")
+            score += 1
         else:
             print(f"Incorrect. The capital of {state} is {capital}.\n")
 
